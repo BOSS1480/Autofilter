@@ -1,8 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-
 import os
 from plugins.Extra.fotnt_string import Fonts
 from pyrogram import Client, filters
@@ -40,7 +35,7 @@ async def style_buttons(c, m, cb=False):
         InlineKeyboardButton('H̆̈ă̈p̆̈p̆̈y̆̈', callback_data='style+happy'),
         InlineKeyboardButton('S̑̈ȃ̈d̑̈', callback_data='style+sad'),
         ],[
-        InlineKeyboardButton('Next ➡️', callback_data="nxt")
+        InlineKeyboardButton('הבא ➡️', callback_data="nxt")
     ]]
     if not cb:
         if ' ' in m.text:
@@ -81,7 +76,7 @@ async def nxt(c, m):
             InlineKeyboardButton('S̶t̶r̶i̶k̶e̶', callback_data='style+strike'),
             InlineKeyboardButton('F༙r༙o༙z༙e༙n༙', callback_data='style+frozen')
             ],[
-            InlineKeyboardButton('⬅️ Back', callback_data='nxt+0')
+            InlineKeyboardButton('⬅️ הקודם', callback_data='nxt+0')
         ]]
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
@@ -176,7 +171,7 @@ async def style(c, m):
     r, oldtxt = m.message.reply_to_message.text.split(None, 1) 
     new_text = cls(oldtxt)            
     try:
-        await m.message.edit_text(f"`{new_text}`\n\n👆 Click To Copy", reply_markup=m.message.reply_markup)
+        await m.message.edit_text(f"`{new_text}`", reply_markup=m.message.reply_markup)
     except Exception as e:
         print(e)
 

@@ -37,8 +37,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{me.username}?startgroup=true')
         ],[
-            InlineKeyboardButton('🕵️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('🔍 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('🕵️ עזרה', callback_data='help'),
+            InlineKeyboardButton('🔍 אודות', callback_data='about')
         ]]
         if cd["update_channel_link"] != None:
             up = cd["update_channel_link"]
@@ -176,7 +176,11 @@ async def start(client, message):
         protect_content=False,
         reply_markup=reply_markup
     )
-    k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+    k = await msg.reply("""<b><u>❗️❗️❗️חשוב❗️️❗️❗️</u></b>
+
+קובץ הסרט/וידאו הזה ימחק בעוד <b><u>10 דקות</u> 🫥</b> <i>(בגלל בעיות זכויות יוצרים)</i>.
+
+<b><i>אנא הפץ קובץ/וידאו זה להודעות שמורות שלך והתחל להוריד אותו משם</i></b>.""",quote=True)
     await asyncio.sleep(600)
     await msg.delete()
     await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
@@ -197,7 +201,7 @@ async def settings(client, message):
     except Exception as e:
         await message.reply(f"**Error In Converting Link**\n\n<code>{e}</code>\n\n**Start The Process Again By - /settings**", reply_markup=InlineKeyboardMarkup(btn))
         return
-    tutorial = await client.ask(message.chat.id, "<b>Now Send Me Your How To Open Link means Tutorial Link.</b>")
+    tutorial = await client.ask(message.chat.id, "עכשיו שלח לי איך לפתוח קישור פירושו קישור למדריך.</b>")
     if not tutorial.text.startswith(('https://', 'http://')):
         await message.reply("**Invalid Link. Start The Process Again By - /settings**")
         return 

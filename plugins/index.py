@@ -1,7 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 import logging, re, asyncio
 from utils import temp
 from info import ADMINS
@@ -35,11 +31,11 @@ async def index_files(bot, query):
         return await query.answer('Wait until previous process complete.', show_alert=True)
     msg = query.message
 
-    await query.answer('Processing...⏳', show_alert=True)
+    await query.answer('מעבד...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
         await bot.send_message(
             int(from_user),
-            f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
+            f'הגשתך להוספה לאינדקס של {chat} התקבלה על ידי המנחים שלנו ותתווסף בקרוב.',
             reply_to_message_id=int(lst_msg_id)
         )
     await msg.edit(
@@ -57,7 +53,7 @@ async def index_files(bot, query):
 
 @Client.on_message(filters.private & filters.command('index'))
 async def send_for_index(bot, message):
-    vj = await bot.ask(message.chat.id, "**Now Send Me Your Channel Last Post Link Or Forward A Last Message From Your Index Channel.\n\nAnd You Can Set Skip Number By - /setskip yourskipnumber**")
+    vj = await bot.ask(message.chat.id, "**עכשיו שלח לי קישור לפוסט אחרון לערוץ שלך או העבר הודעה אחרונה מערוץ האינדקס שלך.\n\nותוכל להגדיר את מספר הדילוג לפי - /setskip yourskipnumber**")
     if vj.forward_from_chat and vj.forward_from_chat.type == enums.ChatType.CHANNEL:
         last_msg_id = vj.forward_from_message_id
         chat_id = vj.forward_from_chat.username or vj.forward_from_chat.id
@@ -84,15 +80,15 @@ async def send_for_index(bot, message):
     try:
         k = await bot.get_messages(chat_id, last_msg_id)
     except:
-        return await message.reply('Make Sure That Iam An Admin In The Channel, if channel is private')
+        return await message.reply('ודא שאני מנהל בערוץ, אם הערוץ פרטי')
     if k.empty:
-        return await message.reply('This may be group and iam not a admin of the group.')
+        return await message.reply('זה עשוי להיות קבוצה ואני לא מנהל של הקבוצה.')
 
     if message.from_user.id in ADMINS:
         buttons = [[
-            InlineKeyboardButton('Yes', callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')
+            InlineKeyboardButton('כן', callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')
         ],[
-            InlineKeyboardButton('close', callback_data='close_data')
+            InlineKeyboardButton('סגור', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         return await message.reply(

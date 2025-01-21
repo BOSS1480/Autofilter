@@ -1,7 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 import datetime, time, asyncio
 from pyrogram import Client, filters
 from database.users_chats_db import db
@@ -13,7 +9,7 @@ async def pm_broadcast(bot, message):
     b_msg = await bot.ask(chat_id = message.from_user.id, text = "Now Send Me Your Broadcast Message")
     try:
         users = await db.get_all_users()
-        sts = await message.reply_text('Broadcasting your messages...')
+        sts = await message.reply_text('משדר את ההודעה שלך...')
         start_time = time.time()
         total_users = await db.total_users_count()
         done = 0

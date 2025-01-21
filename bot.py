@@ -1,9 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-# Clone Code Credit : YT - @Tech_VJ / TG - @VJ_Bots / GitHub - @VJBots
-
 import sys, glob, importlib, logging, logging.config, pytz, asyncio
 from pathlib import Path
 
@@ -60,8 +54,8 @@ async def start():
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
-    logging.info(script.LOGO)
-    tz = pytz.timezone('Asia/Kolkata')
+    logging.info(script.LOGO) 
+    tz = pytz.timezone('Asia/Jerusalem')
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")

@@ -49,29 +49,21 @@ async def start(client, message):
     if len(message.command) != 2:
         if PREMIUM_AND_REFERAL_MODE == True:
             buttons = [[
-                InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                InlineKeyboardButton('⤬ הוסף אותי לקבוצה שלך ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-                InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                InlineKeyboardButton('〄 עזרה', callback_data='help'),
+                InlineKeyboardButton('⍟ אודות', callback_data='about')
             ],[
-                InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('💳 Gᴇᴛ Fʀᴇᴇ Oʀ Pᴀɪᴅ Sᴜʙsᴄʀɪᴘᴛɪᴏɴ 💳', callback_data='subscription')
-            ],[
-                InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
+                InlineKeyboardButton('✇ ערוץ עדכונים ✇', url=CHNL_LNK)
             ]]
         else:
             buttons = [[
-                InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                InlineKeyboardButton('⤬ הוסף אותי לקבוצה שלך⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-                InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                InlineKeyboardButton('〄 עזרה', callback_data='help'),
+                InlineKeyboardButton('⍟ אודות', callback_data='about')
             ],[
-                InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
+                InlineKeyboardButton('✇ ערוץ עדכונים ✇', url=CHNL_LNK)
             ]]
         if CLONE_MODE == True:
             buttons.append([InlineKeyboardButton('🤖 Cʀᴇᴀᴛᴇ Yᴏᴜʀ Oᴡɴ Cʟᴏɴᴇ Bᴏᴛ 🤖', callback_data='clone')])
@@ -99,30 +91,36 @@ async def start(client, message):
             return
         try:
             btn = [[
-                InlineKeyboardButton("❆ Jᴏɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ❆", url=invite_link.invite_link)
+                InlineKeyboardButton("❆ הצטרפו לערוץ עדכונים ❆", url=invite_link.invite_link)
             ]]
             if message.command[1] != "subscribe":
                 if REQUEST_TO_JOIN_MODE == True:
                     if TRY_AGAIN_BTN == True:
                         try:
                             kk, file_id = message.command[1].split("_", 1)
-                            btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
+                            btn.append([InlineKeyboardButton("↻ נסה שוב", callback_data=f"checksub#{kk}#{file_id}")])
                         except (IndexError, ValueError):
-                            btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                            btn.append([InlineKeyboardButton("↻ נסה שוב", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
                 else:
                     try:
                         kk, file_id = message.command[1].split("_", 1)
-                        btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
+                        btn.append([InlineKeyboardButton("↻ נסה שוב", callback_data=f"checksub#{kk}#{file_id}")])
                     except (IndexError, ValueError):
-                        btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                        btn.append([InlineKeyboardButton("↻ נסה שוב", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
             if REQUEST_TO_JOIN_MODE == True:
                 if TRY_AGAIN_BTN == True:
-                    text = "**🕵️ Jᴏɪɴ Tʜᴇ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Tᴏ Gᴇᴛ Mᴏᴠɪᴇ Fɪʟᴇ\n\n👨‍💻 Fɪʀsᴛ Cʟɪᴄᴋ Oɴ Jᴏɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Bᴜᴛᴛᴏɴ, Tʜᴇɴ Cʟɪᴄᴋ Oɴ Rᴇǫᴜᴇsᴛ Tᴏ Jᴏɪɴ Bᴜᴛᴛᴏɴ Aғᴛᴇʀ Cʟɪᴄᴋ Oɴ Tʀʏ Aɢᴀɪɴ Bᴜᴛᴛᴏɴ.**"
+                    text = """**🕵️ הצטרף לערוץ העדכונים כדי לקבל קבצי סרטים
+
+👨‍💻 קודם כל לחץ על כפתור הצטרף לערוץ העדכונים, ואז לחץ על כפתור הבקשה להצטרף לאחר שלחצת על כפתור נסה שוב..**"""
                 else:
                     await db.set_msg_command(message.from_user.id, com=message.command[1])
-                    text = "**🕵️ Jᴏɪɴ Tʜᴇ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Tᴏ Gᴇᴛ Mᴏᴠɪᴇ Fɪʟᴇ\n\n👨‍💻 Fɪʀsᴛ Cʟɪᴄᴋ Oɴ Jᴏɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Bᴜᴛᴛᴏɴ, Tʜᴇɴ Cʟɪᴄᴋ Oɴ Rᴇǫᴜᴇsᴛ Tᴏ Jᴏɪɴ Bᴜᴛᴛᴏɴ.**"
+                    text = """**🕵️ הצטרף לערוץ העדכונים כדי לקבל קבצי סרטים
+
+👨‍💻 קודם כל לחץ על כפתור הצטרף לערוץ העדכונים, ואז לחץ על כפתור הבקשה להצטרף לאחר שלחצת על כפתור נסה שוב..**"""
             else:
-                text = "**🕵️ Jᴏɪɴ Tʜᴇ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Tᴏ Gᴇᴛ Mᴏᴠɪᴇ Fɪʟᴇ\n\n👨‍💻 Fɪʀsᴛ  Cʟɪᴄᴋ Oɴ Jᴏɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Bᴜᴛᴛᴏɴ, Tʜᴇɴ Jᴏɪɴ Cʜᴀɴɴᴇʟ Aғᴛᴇʀ Cʟɪᴄᴋ Oɴ Tʀʏ Aɢᴀɪɴ Bᴜᴛᴛᴏɴ**"
+                text = """**🕵️ הצטרף לערוץ העדכונים כדי לקבל קבצי סרטים
+
+👨‍💻 קודם כל לחץ על כפתור הצטרף לערוץ העדכונים, ואז לחץ על כפתור הבקשה להצטרף לאחר שלחצת על כפתור נסה שוב.**"""
             await client.send_message(
                 chat_id=message.from_user.id,
                 text=text,
@@ -137,29 +135,21 @@ async def start(client, message):
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         if PREMIUM_AND_REFERAL_MODE == True:
             buttons = [[
-                InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                InlineKeyboardButton('⤬ הוסף אותי לקבוצה שלך ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-                InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                InlineKeyboardButton('〄 עזרה', callback_data='help'),
+                InlineKeyboardButton('⍟ אודות', callback_data='about')
             ],[
-                InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('💳 Gᴇᴛ Fʀᴇᴇ Oʀ Pᴀɪᴅ Sᴜʙsᴄʀɪᴘᴛɪᴏɴ 💳', callback_data='subscription')
-            ],[
-                InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
+                InlineKeyboardButton('✇ ערוץ עדכונים✇', url=CHNL_LNK)
             ]]
         else:
             buttons = [[
-                InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                InlineKeyboardButton('⤬ הוסף אותי לקבוצה שלך⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-                InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                InlineKeyboardButton('〄 עזרה', callback_data='help'),
+                InlineKeyboardButton('⍟ אודות', callback_data='about')
             ],[
-                InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
+                InlineKeyboardButton('✇ ערוץ עדכונים ✇', url=CHNL_LNK)
             ]]
         if CLONE_MODE == True:
             buttons.append([InlineKeyboardButton('🤖 Cʀᴇᴀᴛᴇ Yᴏᴜʀ Oᴡɴ Cʟᴏɴᴇ Bᴏᴛ 🤖', callback_data='clone')])
@@ -235,7 +225,7 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("<b>Please wait...</b>")
+        sts = await message.reply("<b>אנא המתן</b>")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -294,22 +284,11 @@ async def start(client, message):
                     )
                 if STREAM_MODE == True:
                     button = [[
-                        InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                    ],[
-                        InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url=OWNER_LNK)
-                    ],[
-                        InlineKeyboardButton("🚀 Fast Download 🚀", url=download),
-                        InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
-                    ],[
-                        InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
+                        InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o')
                     ]]
                 else:
                     button = [[
-                        InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                    ],[
-                        InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url=OWNER_LNK)
+                        InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o')
                     ]]
                 msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
@@ -403,22 +382,11 @@ async def start(client, message):
                     )
                 if STREAM_MODE == True:
                     button = [[
-                        InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                    ],[
-                        InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url=OWNER_LNK)
-                    ],[
-                        InlineKeyboardButton("🚀 Fast Download 🚀", url=download),
-                        InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
-                    ],[
-                        InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
+                        InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o'),
                     ]]
                 else:
                     button = [[
-                        InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                    ],[
-                        InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url=OWNER_LNK)
+                        InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o'),
                     ]]
                 try:
                     p = await msg.copy(message.chat.id, caption=f_caption, protect_content=True if protect == "/pbatch" else False, reply_markup=InlineKeyboardMarkup(button))
@@ -545,13 +513,10 @@ async def start(client, message):
                     )
                     return
             button = [[
-                InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-            ],[
-                InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url=OWNER_LNK)
+                InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o'),
             ]]
             if STREAM_MODE == True:
-                button.append([InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')])
+                button.append
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -560,7 +525,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(button)
             )
             filesarr.append(msg)
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗חשוב❗️️❗️❗️</u></b>\n\nקובץ הסרט/סרטון הזה יימחק תוך<b><u>10 דקות</לu> 🫥 </b><i>(בגלל זכויות יוצרים)</i>\n<b><i>אנא העבר את הקובץ/סרטון הזה להודעות השמורות שלך והתחל בהורדה שם‌‌</i></b>")
         await asyncio.sleep(600)
         for x in filesarr:
             await x.delete()
@@ -607,13 +572,10 @@ async def start(client, message):
                     )
                     return
             button = [[
-                InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-            ],[
-                InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url=OWNER_LNK)
+                InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o'),
             ]]
             if STREAM_MODE == True:
-                button.append([InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')])
+                button.append
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -671,13 +633,10 @@ async def start(client, message):
             )
             return
     button = [[
-        InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-    ],[
-        InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url=OWNER_LNK)
-    ]]
+        InlineKeyboardButton('ערוץ עדכונים', url=f'https://t.me/amoviesnww1o'),
+        ]]
     if STREAM_MODE == True:
-        button.append([InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')])
+        button.append
     msg = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
@@ -688,7 +647,7 @@ async def start(client, message):
     btn = [[
         InlineKeyboardButton("Get File Again", callback_data=f'del#{file_id}')
     ]]
-    k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+    k = await msg.reply("<b><u>❗️❗️❗חשוב❗️️❗️❗️</u></b>\n\nקובץ הסרט/סרטון הזה יימחק תוך<b><u>10 דקות</u> 🫥 <i></b>(בגלל זכויות יוצרים)</i>.\n\n<b><i>אנא העבר את הקובץ/סרטון הזה להודעות השמורות שלך והתחל בהורדה שם‌‌</i></b>",quote=True)
     await asyncio.sleep(600)
     await msg.delete()
     await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))

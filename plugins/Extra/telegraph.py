@@ -1,8 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-
 import os
 import requests
 import asyncio
@@ -44,10 +39,10 @@ async def telegraph_upload(bot, update):
         text=f"<b>Link :-</b>\n\n<code>{image_url}</code>",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup( [[
-            InlineKeyboardButton(text="Open Link", url=image_url),
-            InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url={image_url}")
+            InlineKeyboardButton(text="פתח קישור", url=image_url),
+            InlineKeyboardButton(text="שתף קישור", url=f"https://telegram.me/share/url?url={image_url}")
             ],[
-            InlineKeyboardButton(text="✗ Close ✗", callback_data="close")
+            InlineKeyboardButton(text="✗ סגור ✗", callback_data="close")
             ]])
         )
     

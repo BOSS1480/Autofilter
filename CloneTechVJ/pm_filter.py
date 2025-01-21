@@ -1,9 +1,3 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-# Clone Code Credit : YT - @Tech_VJ / TG - @VJ_Bots / GitHub - @VJBots
-
 import os, logging, string, asyncio, time, re, ast, random, math, pytz, pyrogram
 from datetime import datetime, timedelta, date, time
 from Script import script
@@ -31,7 +25,7 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     ai_search = True
-    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+    reply_msg = await message.reply_text(f"<b><i>מחפש את {message.text} 🔍</i></b>")
     await auto_filter(client, message.text, message, reply_msg, ai_search)
             
 @Client.on_message(filters.private & filters.text & filters.incoming)
@@ -41,7 +35,7 @@ async def pm_text(bot, message):
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     ai_search = True
-    reply_msg = await bot.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
+    reply_msg = await bot.send_message(message.from_user.id, f"<b><i>מחפש את {content} 🔍</i></b>", reply_to_message_id=message.id)
     await auto_filter(bot, content, message, reply_msg, ai_search)
     
 @Client.on_callback_query(filters.regex(r"^next"))
@@ -86,9 +80,9 @@ async def next_page(bot, query):
         ]
     )
     btn.insert(0, [
-        InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
-        InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{key}")
+        InlineKeyboardButton("שלח הכל", callback_data=f"sendfiles#{key}"),
+        InlineKeyboardButton("שפות", callback_data=f"languages#{key}"),
+        InlineKeyboardButton("שנים", callback_data=f"years#{key}")
     ])
     if 0 < offset <= int(MAX_B_TN):
         off_set = 0
@@ -98,16 +92,16 @@ async def next_page(bot, query):
         off_set = offset - int(MAX_B_TN)
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
+            [InlineKeyboardButton("⌫ חזרה", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
         )
     elif off_set is None:
-        btn.append([InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton("עמוד", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("הבא ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("⌫ חזרה", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"),
-                InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("הבא ➪", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -136,7 +130,7 @@ async def advantage_spoll_choker(bot, query):
     if files:
         k = (movie, files, offset, total_results)
         ai_search = True
-        reply_msg = await query.message.edit_text(f"<b><i>Searching For {movie} 🔍</i></b>")
+        reply_msg = await query.message.edit_text(f"<b><i>מחפש את {movie} 🔍</i></b>")
         await auto_filter(bot, movie, query, reply_msg, ai_search, k)
     else:
         reqstr1 = query.from_user.id if query.from_user else 0
@@ -229,19 +223,15 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ', callback_data=f"qualities#{key}"),
-            InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{key}"),
-            InlineKeyboardButton("sᴇᴀsᴏɴs",  callback_data=f"seasons#{key}")
+
         ]
     )
     btn.insert(0, [
-        InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
-        InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{key}")
+        InlineKeyboardButton("שלח הכל", callback_data=f"sendfiles#{key}")
     ])
     if offset != "":
         btn.append(
-            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton("עמוד", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="הבא ➪",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
@@ -341,19 +331,14 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ', callback_data=f"qualities#{key}"),
-            InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{key}"),
-            InlineKeyboardButton("sᴇᴀsᴏɴs",  callback_data=f"seasons#{key}")
         ]
     )
     btn.insert(0, [
-        InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
-        InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{key}")
+        InlineKeyboardButton("שלח הכל", callback_data=f"sendfiles#{key}")
     ])
     if offset != "":
         btn.append(
-            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton("עמוד", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="הבא ➪",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
@@ -455,19 +440,14 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ', callback_data=f"qualities#{key}"),
-            InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{key}"),
-            InlineKeyboardButton("sᴇᴀsᴏɴs",  callback_data=f"seasons#{key}")
         ]
     )
     btn.insert(0, [
-        InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
-        InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{key}")
+        InlineKeyboardButton("שלח הכל", callback_data=f"sendfiles#{key}")
     ])
     if offset != "":
         btn.append(
-            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton("עמוד", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="הבא ➪",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
@@ -596,15 +576,10 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ', callback_data=f"qualities#{key}"),
-            InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{key}"),
-            InlineKeyboardButton("sᴇᴀsᴏɴs",  callback_data=f"seasons#{key}")
         ]
     )
     btn.insert(0, [
-        InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
-        InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{key}")
+        InlineKeyboardButton("שלח הכל", callback_data=f"sendfiles#{key}")
     ])   
     offset = 0
 
@@ -745,8 +720,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "help":
         text = "<b>👨‍💻 How To Use Bot :-\n\n🔻 /start - check bot is working or not.\n\n🔻 /stats - check bot files and users.\n\n🔻 /settings - configure clone bot settings ( owner only ).\n\n🔻 /reset - reset all settings to default or none ( owner only ).\n\n🔻 /broadcast - broadcast a message to your bot users ( owner only ).</b>"
         btn = [[
-            InlineKeyboardButton("🔍 ᴀʙᴏᴜᴛ", callback_data="about"),
-            InlineKeyboardButton("🏡 ʜᴏᴍᴇ", callback_data="start")
+            InlineKeyboardButton("🔍 אודות", callback_data="about"),
+            InlineKeyboardButton("🏡 עזרה", callback_data="start")
         ]]
         await query.message.edit_text(text = text, reply_markup = InlineKeyboardMarkup(btn))
 
@@ -754,8 +729,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{me.username}?startgroup=true')
         ],[
-            InlineKeyboardButton('🕵️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('🔍 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('🕵️ עזרה', callback_data='help'),
+            InlineKeyboardButton('🔍 אודות', callback_data='about')
         ]]
         if settings["update_channel_link"] != None:
             buttons.append([[InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🍿', url=f'{settings["update_channel_link"]}')]])
@@ -764,8 +739,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "about":
         btn = [[
-            InlineKeyboardButton('🕵️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton("🏡 ʜᴏᴍᴇ", callback_data="start")
+            InlineKeyboardButton('🕵️ עזרה', callback_data='help'),
+            InlineKeyboardButton("🏡 בית", callback_data="start")
         ]]
         await query.message.edit_text(text = script.CLONE_ABOUT_TXT.format(me.mention, temp.U_NAME, temp.B_NAME), reply_markup = InlineKeyboardMarkup(btn))
         
@@ -898,20 +873,16 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
     ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ', callback_data=f"qualities#{key}"),
-            InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{key}"),
-            InlineKeyboardButton("sᴇᴀsᴏɴs",  callback_data=f"seasons#{key}")
+
         ]
     )
     btn.insert(0, [
-        InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
-        InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{key}")
+        InlineKeyboardButton("שלח הכל", callback_data=f"sendfiles#{key}")
     ])
     if offset != "":
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton("עמוד", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="הבא ➪",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
@@ -1009,7 +980,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
     if not movies:
         reqst_gle = mv_rqst.replace(" ", "+")
         button = [[
-            InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
+            InlineKeyboardButton("חפש בגוגל", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
         await asyncio.sleep(30)
