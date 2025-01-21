@@ -24722,3 +24722,34 @@ Traceback (most recent call last):
     raise getattr(
 pyrogram.errors.exceptions.bad_request_400.MessageIdInvalid: Telegram says: [400 MESSAGE_ID_INVALID] (caused by "messages.EditMessage") Pyrogram 2.3.45 thinks: The message id is invalid
 09:15:02 PM - 214 - aiohttp.access - web_log - INFO - 78.108.177.51 [21/Jan/2025:21:15:02 +0200] "GET / HTTP/1.0" 200 174 "-" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0;  Trident/5.0)"
+11:48:02 PM - 376 - pyrogram.dispatcher - dispatcher - ERROR - Telegram says: [400 MESSAGE_ID_INVALID] (caused by "messages.EditMessage") Pyrogram 2.3.45 thinks: The message id is invalid
+Traceback (most recent call last):
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 363, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/handlers/message_handler.py", line 154, in resolve_future_or_callback
+    await self.original_callback(client, message, *args)
+  File "/root/VJ-FILTER-BOT/plugins/pm_filter.py", line 58, in give_filter
+    await auto_filter(client, message.text, message, reply_msg, ai_search)
+  File "/root/VJ-FILTER-BOT/plugins/pm_filter.py", line 2520, in auto_filter
+    return await advantage_spell_chok(client, name, msg, reply_msg, ai_search)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/VJ-FILTER-BOT/plugins/pm_filter.py", line 2746, in advantage_spell_chok
+    k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/types/messages_and_media/message.py", line 4218, in edit_text
+    return await self._client.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/methods/messages/edit_message_text.py", line 109, in edit_message_text
+    r = await self.invoke(rpc)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/methods/advanced/invoke.py", line 80, in invoke
+    r = await self.session.invoke(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/session/session.py", line 420, in invoke
+    return await self.send(query, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/session/session.py", line 377, in send
+    RPCError.raise_it(result, type(data))
+  File "/root/VJ-FILTER-BOT/myenv/lib/python3.12/site-packages/pyrogram/errors/rpc_error.py", line 93, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.MessageIdInvalid: Telegram says: [400 MESSAGE_ID_INVALID] (caused by "messages.EditMessage") Pyrogram 2.3.45 thinks: The message id is invalid
